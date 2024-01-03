@@ -23,7 +23,16 @@ function Logo() {
 }
 function Form() {
   const [description, setDescription] = useState("");
+
   const [select, setSelect] = useState(1);
+
+  const [items, setItems] = useState([]);
+
+  function handleAddItem(item) {
+    setItems((items) => [...items, item])
+
+  }
+
 
   function handleSubmit(e) {
 
@@ -31,8 +40,17 @@ function Form() {
       return;
     }
 
-    const newItem = { description, select, packed: false, id: Date.now() }
+    const newItem = {
+      description, select, packed: false, id: Date.now()
+    }
+
+
+    handleAddItem(newItem)
     console.log(newItem)
+
+    setDescription("")
+    setSelect(1)
+
     e.preventDefault()
   }
 
