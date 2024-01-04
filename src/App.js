@@ -32,11 +32,12 @@ export default function App() {
   }
 
   function handleDeleteAllItems() {
+    const confirmed = window.confirm("Are you sure ! you want to delete all items?")
 
-    setItems(
-      (items) => items.splice(0, items.length)
-
-    )
+    if (confirmed)
+      setItems(
+        (items) => items.splice(0, items.length)
+      )
 
   }
   return (
